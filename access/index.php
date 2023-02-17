@@ -1,17 +1,31 @@
 
+<?php
+  $ALLOWED_USERNAMES = ["mohan", "sameer"];
+
+  function hasAccess()
+  {
+      global $username;
+      $username = "";
+
+      if (isset($_GET["u"])) {
+          $username = $_GET["u"];
+      } else {
+          $uriSegments = explode(
+              "/",
+              parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH)
+          );
+          if (!empty($uriSegments[1])) {
+              $username = $uriSegments[1];
+          }
+      }
+
+      if (in_array($username, $GLOBALS["ALLOWED_USERNAMES"])) {
+          return true;
+      } else {
+          return false;
+      }
+  }
+  ?>
 		
-		
-		//@todo: Create an array of allowed usernames. For example ALLOWED_USERNAMES = ['mohan', 'sameer']
-		$ALLOWED_USERNAMES = ['mohan', 'sameer'];
-
-		function hasAccess(){
-
-			//@todo: Get username from URL. For example -> www.example.com/mohan. `mohan` is a username
-//@todo: Get username from queryParam. For example ->www.example.com?u=mohan. `mohan` is a username
-
-//@todo: check if ALLOWED_USERNAMES.contains($username) then continue else redirect to another page. Another page will be created/given
-//@todo: Create an hidden field with value of username. example is given below
-<input name="enroller" value="<?=$username?>" type="hidden">
-
-			return boolean;
-		}
+	
+		 ?>
