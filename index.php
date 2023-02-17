@@ -1,7 +1,13 @@
 <?php
-//Check for valid username
-require_once('./permission.php');
+require_once('./access')
+
+if(!hasAccess()){
+
+	//redirect to access-denied.php
+}
+
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
