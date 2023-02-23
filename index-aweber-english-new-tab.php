@@ -85,6 +85,7 @@ $(function() {
 			if($('form').attr('target') == "_blank"){
 				setTimeout(function(){ $('#sendsteedinfosent').show(); $(':submit').removeClass('btnclicked');}, 1000);
 			}
+			window.open("https://lllpg.com/sistemainovadorexplicacao");
 				});
 	$(document).on("click", "button[type='button']", function(){
 			if (!navigator.sendBeacon) console.log("2");
